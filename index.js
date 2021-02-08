@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 import postsRoute from "./routes/posts.js";
@@ -16,6 +15,9 @@ app.use(cors());
 
 //route declare
 app.use("/posts", postsRoute);
+app.use("/", (req,res) =>{
+  res.send('Home route')
+});
 
 const PORT = process.env.PORT || 5000;
 // mongoose
